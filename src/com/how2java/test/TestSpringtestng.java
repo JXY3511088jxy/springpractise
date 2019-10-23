@@ -1,15 +1,15 @@
 package com.how2java.test;
 
+
 import com.how2java.pojo.Category;
-import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
+import org.testng.annotations.Test;
 
-@RunWith(SpringJUnit4ClassRunner.class)//配置springtest的驱动，这样就可以使用spring的注解了
 @ContextConfiguration("classpath:applicationContext.xml")
-public class TestSpringjunit {
+public class TestSpringtestng extends AbstractTestNGSpringContextTests {
+    //继承AbstractTestNGSpringContextTests，就可以使用spring的注解了；效果与junit的Runwith一样
     @Autowired
     Category c;
 
@@ -17,5 +17,6 @@ public class TestSpringjunit {
     public void test(){
         System.out.println(c.getName());
     }
+
 
 }
